@@ -11,7 +11,7 @@ import { useState, useEffect, useRef, useMemo } from "react";
    (Instructions complètes fournies séparément.)
    ============================================================ */
 const SUPABASE_URL = "https://qizqcveufxcdzxtyvwif.supabase.co";        // ← ex : "https://qizqcveufxcdzxtyvwif.supabase.co"
-const SUPABASE_ANON_KEY = "sb_publishable_IzNm85vUbuPJ8h32CKvFwQ_cuwwMIIL";   // ← ta clé publique "anon"
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFpenFjdmV1ZnhjZHp4dHl2d2lmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcyNDQ3MjYsImV4cCI6MjEwMjgyMDcyNn0.YA4Gkx8XjLnz1yubCDNIc5lJ1owTyX-CAEtkWffQM3Q";   // ← ta clé publique "anon"
 const FOYER_ID = "foyer";       // identifiant du foyer partagé
 
 /* ============================================================
