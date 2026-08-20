@@ -10,8 +10,8 @@ import { useState, useEffect, useRef, useMemo } from "react";
    Supabase gratuit et colle ci-dessous ton URL + ta clé "anon".
    (Instructions complètes fournies séparément.)
    ============================================================ */
-const SUPABASE_URL = "https://qizqcveufxcdzxtyvwif.supabase.co";        // ← ex : "https://qizqcveufxcdzxtyvwif.supabase.co"
-const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFpenFjdmV1ZnhjZHp4dHl2d2lmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcyNDQ3MjYsImV4cCI6MjEwMjgyMDcyNn0.YA4Gkx8XjLnz1yubCDNIc5lJ1owTyX-CAEtkWffQM3Q";   // ← ta clé publique "anon"
+const SUPABASE_URL = "";        // ← ex : "https://xxxx.supabase.co"
+const SUPABASE_ANON_KEY = "";   // ← ta clé publique "anon"
 const FOYER_ID = "foyer";       // identifiant du foyer partagé
 
 /* ============================================================
@@ -219,6 +219,83 @@ const PLATS_BASE = [
     ["Boulgour", 300, "g", "FE"], ["Pois chiches", 1, "boîte", "ES"],
     ["Carottes", 2, "u", "FL"], ["Concombre", 1, "u", "FL"],
     ["Feta", 150, "g", "CO"]]),
+
+  /* --- Plats repris du tableau de cuisine --- */
+  M("gratin-quenelles", "Gratin de quenelles", "vege", ["four"], [
+    ["Quenelles nature", 8, "u", "FE"], ["Crème fraîche", 20, "cl", "CO"],
+    ["Bouillon", 1, "cube", "ES"], ["Emmental râpé", 120, "g", "CO"]]),
+  M("parmentier-canard", "Parmentier de canard", "viande", ["four"], [
+    ["Cuisses de canard confites", 3, "u", "BP"], ["Pommes de terre", 1, "kg", "FL"],
+    ["Lait", 20, "cl", "CO"], ["Beurre", 30, "g", "CO"], ["Oignon", 1, "u", "FL"]]),
+  M("hot-dog", "Hot dog", "viande", ["rapide"], [
+    ["Pains à hot-dog", 5, "u", "PA"], ["Saucisses de Strasbourg", 10, "u", "BP"],
+    ["Emmental râpé", 120, "g", "CO"], ["Moutarde", 1, "u", "ES"]]),
+  M("semoule-jambon", "Semoule au jambon", "viande", ["rapide"], [
+    ["Semoule", 350, "g", "FE"], ["Jambon", 4, "tranches", "BP"],
+    ["Petits pois", 200, "g", "SG"], ["Beurre", 30, "g", "CO"]]),
+  M("gratin-ravioles", "Gratin de ravioles", "vege", ["four", "rapide"], [
+    ["Ravioles", 4, "plaques", "FE"], ["Crème fraîche", 40, "cl", "CO"],
+    ["Emmental râpé", 120, "g", "CO"]]),
+  M("oeuf-coque", "Œufs à la coque & mouillettes", "oeufs", ["rapide"], [
+    ["Œufs", 10, "u", "CO"], ["Baguette", 1, "u", "PA"], ["Beurre", 30, "g", "CO"]]),
+  M("bourguignon", "Bœuf bourguignon", "viande", ["mijoté"], [
+    ["Bœuf à mijoter", 800, "g", "BP"], ["Vin rouge", 25, "cl", "AU"],
+    ["Carottes", 3, "u", "FL"], ["Oignon", 2, "u", "FL"],
+    ["Champignons", 250, "g", "FL"], ["Lardons", 100, "g", "BP"]]),
+  M("risotto-asperges", "Risotto aux asperges", "vege", ["mijoté", "printemps"], [
+    ["Riz risotto", 350, "g", "FE"], ["Asperges vertes", 1, "botte", "FL"],
+    ["Bouillon", 1, "cube", "ES"], ["Parmesan", 80, "g", "CO"], ["Oignon", 1, "u", "FL"]]),
+  M("galettes-bretonnes", "Galettes bretonnes jambon-œuf", "oeufs", ["rapide"], [
+    ["Farine de sarrasin", 300, "g", "SU"], ["Œufs", 6, "u", "CO"],
+    ["Jambon", 5, "tranches", "BP"], ["Emmental râpé", 150, "g", "CO"]]),
+  M("souffle-fromage", "Soufflé au fromage", "oeufs", ["four"], [
+    ["Œufs", 6, "u", "CO"], ["Lait", 50, "cl", "CO"], ["Farine", 60, "g", "SU"],
+    ["Beurre", 50, "g", "CO"], ["Comté râpé", 150, "g", "CO"]]),
+  M("wraps-poulet", "Wraps au poulet", "volaille", ["rapide"], [
+    ["Tortillas", 1, "paquet", "PA"], ["Blancs de poulet", 400, "g", "BP"],
+    ["Salade verte", 1, "u", "FL"], ["Tomates", 2, "u", "FL"],
+    ["Fromage râpé", 100, "g", "CO"], ["Crème fraîche", 10, "cl", "CO"]]),
+  M("bavette-frites", "Bavette & frites", "viande", ["rapide"], [
+    ["Bavette", 5, "u", "BP"], ["Frites surgelées", 1, "sachet", "SG"],
+    ["Échalote", 2, "u", "FL"]]),
+  M("salade-cesar", "Salade César", "salade", ["rapide", "été"], [
+    ["Salade romaine", 2, "u", "FL"], ["Blancs de poulet", 400, "g", "BP"],
+    ["Parmesan", 80, "g", "CO"], ["Croûtons", 1, "sachet", "ES"], ["Sauce César", 1, "u", "ES"]]),
+  M("salade-lyonnaise", "Salade lyonnaise", "salade", ["rapide"], [
+    ["Salade frisée", 1, "u", "FL"], ["Lardons", 200, "g", "BP"],
+    ["Œufs", 5, "u", "CO"], ["Croûtons", 1, "sachet", "ES"]]),
+  M("gnocchis", "Gnocchis sauce tomate", "vege", ["rapide"], [
+    ["Gnocchis", 800, "g", "FE"], ["Sauce tomate", 2, "boîtes", "ES"],
+    ["Parmesan", 80, "g", "CO"]]),
+  M("avocado-toast", "Avocado toast & œuf", "oeufs", ["rapide", "été"], [
+    ["Pain de campagne", 1, "u", "PA"], ["Avocats", 3, "u", "FL"],
+    ["Œufs", 5, "u", "CO"], ["Citron", 1, "u", "FL"]]),
+  M("filet-mignon", "Filet mignon de porc", "viande", ["four"], [
+    ["Filet mignon de porc", 1, "u", "BP"], ["Crème fraîche", 20, "cl", "CO"],
+    ["Champignons", 250, "g", "FL"], ["Pommes de terre", 800, "g", "FL"]]),
+  M("tarte-pdt-saumon", "Tarte pomme de terre & saumon", "poisson", ["four"], [
+    ["Pâte feuilletée", 1, "u", "FE"], ["Pommes de terre", 600, "g", "FL"],
+    ["Saumon fumé", 4, "tranches", "BP"], ["Crème fraîche", 20, "cl", "CO"]]),
+  M("tomates-farcies", "Tomates farcies", "viande", ["four"], [
+    ["Grosses tomates", 6, "u", "FL"], ["Chair à saucisse", 500, "g", "BP"],
+    ["Oignon", 1, "u", "FL"], ["Riz", 250, "g", "FE"]]),
+  M("tarte-fourme", "Tarte à la fourme", "vege", ["four"], [
+    ["Pâte brisée", 1, "u", "FE"], ["Fourme d'Ambert", 150, "g", "CO"],
+    ["Œufs", 3, "u", "CO"], ["Crème fraîche", 20, "cl", "CO"], ["Poireaux", 2, "u", "FL"]]),
+  M("tarte-ratatouille", "Tarte à la ratatouille", "vege", ["four", "été"], [
+    ["Pâte feuilletée", 1, "u", "FE"], ["Courgette", 1, "u", "FL"],
+    ["Aubergine", 1, "u", "FL"], ["Poivron", 1, "u", "FL"],
+    ["Tomates", 3, "u", "FL"], ["Chèvre", 1, "u", "CO"]]),
+  M("quiche-sans-pate", "Quiche sans pâte", "oeufs", ["four", "rapide"], [
+    ["Œufs", 6, "u", "CO"], ["Lait", 25, "cl", "CO"], ["Farine", 100, "g", "SU"],
+    ["Lardons", 150, "g", "BP"], ["Emmental râpé", 120, "g", "CO"]]),
+  /* --- Quelques classiques complémentaires --- */
+  M("endives-jambon", "Endives au jambon", "viande", ["four", "hiver"], [
+    ["Endives", 6, "u", "FL"], ["Jambon", 6, "tranches", "BP"],
+    ["Béchamel", 1, "brique", "ES"], ["Emmental râpé", 120, "g", "CO"]]),
+  M("gratin-chou-fleur", "Gratin de chou-fleur", "vege", ["four"], [
+    ["Chou-fleur", 1, "u", "FL"], ["Béchamel", 1, "brique", "ES"],
+    ["Emmental râpé", 150, "g", "CO"], ["Pommes de terre", 500, "g", "FL"]]),
 ];
 
 /* ============================================================
@@ -342,13 +419,24 @@ async function cloudSave(data) {
 function initialState() {
   return {
     updatedAt: 0,
-    pool: PLATS_BASE,
-    desserts: DESSERTS_BASE,
+    pool: [],
+    desserts: [],
+    seededIds: [],     // identifiants de base déjà injectés (évite les doublons / respecte les suppressions)
     plan: {},          // index créneau -> { platId, dessertId }
     locked: {},        // index créneau -> true (verrouillé)
     checked: {},       // nom d'ingrédient coché dans les courses
     extras: [],        // articles ajoutés à la main : { nom, done }
   };
+}
+
+/* Injecte les plats/desserts de base pas encore vus, sans écraser l'existant */
+function seed(loaded) {
+  const pool = [...(loaded.pool || [])];
+  const desserts = [...(loaded.desserts || [])];
+  const seen = new Set(loaded.seededIds || []);
+  PLATS_BASE.forEach((p) => { if (!seen.has(p.id)) { pool.push(p); seen.add(p.id); } });
+  DESSERTS_BASE.forEach((d) => { if (!seen.has(d.id)) { desserts.push(d); seen.add(d.id); } });
+  return { pool, desserts, seededIds: [...seen] };
 }
 
 /* ============================================================
@@ -427,9 +515,7 @@ export default function App() {
       const local = await localLoad();
       const base = initialState();
       const loaded = cloud || local || {};
-      setState({ ...base, ...loaded,
-        pool: (loaded.pool && loaded.pool.length) ? loaded.pool : base.pool,
-        desserts: (loaded.desserts && loaded.desserts.length) ? loaded.desserts : base.desserts });
+      setState({ ...base, ...loaded, ...seed(loaded) });
       skipSave.current = false;
     })();
   }, []);
