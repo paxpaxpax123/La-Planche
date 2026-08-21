@@ -10,8 +10,8 @@ import { useState, useEffect, useRef, useMemo } from "react";
    Supabase gratuit et colle ci-dessous ton URL + ta clé "anon".
    (Instructions complètes fournies séparément.)
    ============================================================ */
-const SUPABASE_URL = "";        // ← ex : "https://xxxx.supabase.co"
-const SUPABASE_ANON_KEY = "";   // ← ta clé publique "anon"
+const SUPABASE_URL = "https://qizqcveufxcdzxtyvwif.supabase.co";        // ← ex : "https://xxxx.supabase.co"
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFpenFjdmV1ZnhjZHp4dHl2d2lmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODcyNDQ3MjYsImV4cCI6MjEwMjgyMDcyNn0.YA4Gkx8XjLnz1yubCDNIc5lJ1owTyX-CAEtkWffQM3Q";   // ← ta clé publique "anon"
 const FOYER_ID = "foyer";       // identifiant du foyer partagé
 
 /* ============================================================
